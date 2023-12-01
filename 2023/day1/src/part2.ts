@@ -20,23 +20,22 @@ function main() {
   }
 
   for (const line of lines) {
-    // TODO:: fix this regex
+    // RegEx spoiler alert: You can also write a regex where it sort of starts over instead of continuing where it left off. A bit slower but something like /(?=(one|two|three|four|five|six|seven|eight|nine|\d))/g. Be aware, this doesn't work in Safari - Robin, Discord
+    let reg = /(?=(one|two|three|four|five|six|seven|eight|nine|\d))/g;
 
-    let reg = /\d|zero|one|two|three|four|five|six|seven|eight|nine/g;
+    const res = [...line.matchAll(reg)];
 
-    // TODO:: eightwo must be 82 not 88 or 22
-    const res = line.match(reg);
-
-    if (!res) {
+    if (!res.length) {
       throw new Error('No match');
     }
 
-    const f = isNaN(Number(res?.[0])) ? words[res?.[0]] : parseInt(res?.[0]);
-    const l = isNaN(Number(res?.[res?.length - 1]))
-      ? words[res?.[res?.length - 1]]
-      : parseInt(res?.[res?.length - 1]);
+    const f = isNaN(Number(res[0][1])) ? words[res[0][1]] : parseInt(res[0][1]);
 
-    sum += parseInt(`${f}${l}`);
+    const l = isNaN(Number(res[res.length - 1][1]))
+      ? words[res[res.length - 1][1]]
+      : parseInt(res[res.length - 1][1]);
+
+    sum += f * 10 + l;
   }
 
   console.log(sum);

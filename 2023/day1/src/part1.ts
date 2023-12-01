@@ -23,7 +23,7 @@ function main() {
       }
     }
 
-    sum += parseInt(`${line[i]}${line[j]}`);
+    sum += parseInt(Number(line[i]) * 10 + line[j]);
   }
 
   console.log(sum);
