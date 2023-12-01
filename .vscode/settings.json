@@ -1,0 +1,13 @@
+{
+  "github.copilot.enable": {
+    "typescript": false,
+    "typescriptreact": false,
+    "javascript": false,
+    "javascriptreact": false,
+    "rust": false
+  },
+  "cody.autocomplete.enabled": false,
+  "cody.inlineChat.enabled": false,
+  "cody.codeActions.enabled": false
+}
+
