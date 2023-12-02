@@ -8,6 +8,10 @@
   },
   "cody.autocomplete.enabled": false,
   "cody.inlineChat.enabled": false,
-  "cody.codeActions.enabled": false
+  "cody.codeActions.enabled": false,
+  "rust-analyzer.linkedProjects": [
+    "D:\\Codes\\advent-of-code\\2023\\day1\\Cargo.toml",
+    "D:\\Codes\\advent-of-code\\2023\\day2\\Cargo.toml"
+  ]
 }
 
