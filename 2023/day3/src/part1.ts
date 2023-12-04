@@ -11,7 +11,7 @@ function main() {
     const n = line.length;
     const m = lines[0].length;
 
-    function isSymbol(i, j) {
+    function isSymbol(i: number, j: number) {
       if (!(0 <= i && i < n && 0 <= j && j < m)) {
         return false;
       }
@@ -20,7 +20,7 @@ function main() {
       return lines?.[i]?.[j] !== '.' && isNaN(lines?.[i]?.[j]);
     }
 
-    let match;
+    let match: RegExpExecArray | null;
     while ((match = reg.exec(line))) {
       let i = match.index,
         j = i + match[0].length - 1;
