@@ -11,7 +11,8 @@
   "cody.codeActions.enabled": false,
   "rust-analyzer.linkedProjects": [
     "D:\\Codes\\advent-of-code\\2023\\day1\\Cargo.toml",
-    "D:\\Codes\\advent-of-code\\2023\\day2\\Cargo.toml"
+    "D:\\Codes\\advent-of-code\\2023\\day2\\Cargo.toml",
+    "D:\\Codes\\advent-of-code\\2023\\day3\\Cargo.toml"
   ]
 }
 
