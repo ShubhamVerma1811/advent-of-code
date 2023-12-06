@@ -11,8 +11,14 @@
   "cody.codeActions.enabled": false,
   "rust-analyzer.linkedProjects": [
     "D:\\Codes\\advent-of-code\\2015\\day1\\Cargo.toml",
+    "D:\\Codes\\advent-of-code\\2015\\day2\\Cargo.toml",
+    "D:\\Codes\\advent-of-code\\2015\\day4\\Cargo.toml",
     "D:\\Codes\\advent-of-code\\2023\\day1\\Cargo.toml",
-    "D:\\Codes\\advent-of-code\\2023\\day2\\Cargo.toml"
+    "D:\\Codes\\advent-of-code\\2023\\day2\\Cargo.toml",
+    "D:\\Codes\\advent-of-code\\2023\\day3\\Cargo.toml",
+    "D:\\Codes\\advent-of-code\\2023\\day4\\Cargo.toml",
+    "D:\\Codes\\advent-of-code\\2023\\day5\\Cargo.toml",
+    "D:\\Codes\\advent-of-code\\2023\\day6\\Cargo.toml"
   ]
 }
 
