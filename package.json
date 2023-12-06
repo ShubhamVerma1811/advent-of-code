@@ -1,15 +1,22 @@
 {
-  "name": "advent-of-code",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "format": "prettier -w * --log-level error"
+  "private": true,
+  "version": "0.0.0",
+  "author": {
+    "name": "Shubham Verma",
+    "email": "hi@shubhamverma.me",
+    "url": "https://shubhamverma.me"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "dependencies": {
-    "@types/node": "^20.10.1"
+  "license": "MIT",
+  "type": "module",
+  "scripts": {
+    "format": "prettier -w . --ignore-unknown --log-level error",
+    "gen": "node ./generate.js"
+  },
+  "devDependencies": {
+    "@types/jest": "^29.5.11",
+    "@types/node": "^20.10.1",
+    "cheerio": "1.0.0-rc.12",
+    "dotenv": "^16.3.1",
+    "prettier": "^3.1.0"
   }
 }
