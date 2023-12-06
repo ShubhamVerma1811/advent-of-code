@@ -1,0 +1,23 @@
+{
+  "name": "advent-of-code",
+  "private": true,
+  "author": {
+    "name": "Shubham Verma",
+    "email": "hi@shubhamverma.me",
+    "url": "https://shubhamverma.me"
+  },
+  "license": "MIT",
+  "type": "module",
+  "scripts": {
+    "test": "jest",
+    "tdd": "jest --watchAll",
+    "bench": "node ../../bench.js",
+    "format": "prettier . --write --ignore-unknown"
+  },
+  "jest": {
+    "displayName": "{{YEAR}}",
+    "transform": {
+      "\\.(t|j)sx?$": "@swc/jest"
+    }
+  }
+}
