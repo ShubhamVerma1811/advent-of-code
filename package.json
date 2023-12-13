@@ -13,6 +13,7 @@
     "gen": "node ./generate.js"
   },
   "devDependencies": {
+    "@biomejs/biome": "1.4.1",
     "@types/jest": "^29.5.11",
     "@types/node": "^20.10.1",
     "cheerio": "1.0.0-rc.12",
