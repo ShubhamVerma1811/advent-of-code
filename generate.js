@@ -94,7 +94,9 @@ let replacements = {
   'typescript/index.ts': values,
   'rust/src/main.rs': values,
   'rust/Cargo.toml': values,
-  'rust/Cargo.lock': values
+  'rust/Cargo.lock': values,
+  'go/main.go': values,
+  'go/go.mod': values
 }
 
 for (let file in replacements) {
