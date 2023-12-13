@@ -1,8 +1,8 @@
-import { resolve } from 'node:path'
 import { readFile } from 'node:fs/promises'
+import { resolve } from 'node:path'
 
 async function main() {
-  let data = await readFile(
+  const data = await readFile(
     resolve('../../../../', 'data', '2015-02.txt'),
     'utf8'
   )
@@ -10,7 +10,7 @@ async function main() {
   // Part 1
   {
     console.time('Part 1')
-    let result = part1(data)
+    const result = part1(data)
     console.log('Result:', result)
     console.timeEnd('Part 1')
   }
@@ -18,7 +18,7 @@ async function main() {
   // Part 2
   {
     console.time('Part 2')
-    let result = part2(data)
+    const result = part2(data)
     console.log('Result:', result)
     console.timeEnd('Part 2')
   }

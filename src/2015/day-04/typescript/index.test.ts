@@ -2,7 +2,7 @@ import { promises } from 'fs'
 import { resolve } from 'path'
 import { part1, part2 } from '.'
 
-let data = promises.readFile(
+const data = promises.readFile(
   resolve(process.cwd(), 'data', '2015-04.txt'),
   'utf8'
 )
