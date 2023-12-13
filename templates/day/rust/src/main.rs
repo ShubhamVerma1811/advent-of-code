@@ -3,15 +3,23 @@ use std::time::Instant;
 const INPUT: &str = include_str!("../../../../../data/{{YEAR}}-{{DAY}}.txt");
 
 fn main() {
-    let now = Instant::now();
-    let part_1_result = part_1(INPUT);
-    let duration = now.elapsed();
-    println!("Part 1: {:<20}(took: {:>12?})", part_1_result, duration);
+    // Part 1
+    {
+        let now = Instant::now();
+        let result = part_1(INPUT);
+        let duration = now.elapsed();
+        println!("Result: {}", result);
+        println!("Part 1 {:?}", duration);
+    }
 
-    let now = Instant::now();
-    let part_2_result = part_2(INPUT);
-    let duration = now.elapsed();
-    println!("Part 2: {:<20}(took: {:>12?})", part_2_result, duration);
+    // Part 2
+    {
+        let now = Instant::now();
+        let result = part_2(INPUT);
+        let duration = now.elapsed();
+        println!("Result: {}", result);
+        println!("Part 2 {:?}", duration);
+    }
 }
 
 pub fn part_1(data: &str) -> i32 {
