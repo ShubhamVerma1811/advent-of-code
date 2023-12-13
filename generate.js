@@ -80,6 +80,20 @@ if (!fs.existsSync(destYear('package.json'))) {
   }
 }
 
+async function fetchAndWriteInput({ year, day }) {
+  let response = await fetch(
+    `https://adventofcode.com/${year}/day/${Number(day)}/input`,
+    {
+      headers: {
+        cookie: process.env.AOC_COOKIE
+      }
+    }
+  )
+  let contents = await response.text()
+
+  await fs.promises.writeFile(data(`${year}-${day}.txt`), contents, 'utf8')
+}
+
 // Copy the files from the day template
 await copy(template('day'), destDay())
 
@@ -108,15 +122,4 @@ for (let file in replacements) {
   await fs.promises.writeFile(destDay(file), contents, 'utf8')
 }
 
-// Get the data for the next day
-let response = await fetch(
-  `https://adventofcode.com/${year}/day/${Number(day)}/input`,
-  {
-    headers: {
-      cookie: process.env.AOC_COOKIE
-    }
-  }
-)
-let contents = await response.text()
-
-await fs.promises.writeFile(data(`${year}-${day}.txt`), contents, 'utf8')
+fetchAndWriteInput({ year, day })
