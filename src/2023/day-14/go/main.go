@@ -2,16 +2,21 @@ package main
 
 import (
 	"fmt"
+	"io"
 	"os"
 	"time"
 )
 
 func main() {
 
-	data, err := os.ReadFile("../../../../data/{{YEAR}}-{{DAY}}.txt")
+	file, err := os.Open("../../../../data/2023-14.txt")
 	if err != nil {
 		panic(err)
 	}
+
+	defer file.Close()
+
+	data, err := io.ReadAll(file)
 
 	if err != nil {
 		panic(err)
