@@ -10,14 +10,13 @@
   "type": "module",
   "scripts": {
     "format": "prettier -w . --ignore-unknown --log-level error",
-    "gen": "node ./generate.js"
+    "gen": "node --env-file .env ./generate.js"
   },
   "devDependencies": {
     "@biomejs/biome": "1.4.1",
     "@types/jest": "^29.5.11",
     "@types/node": "^20.10.1",
     "cheerio": "1.0.0-rc.12",
-    "dotenv": "^16.3.1",
     "prettier": "^3.1.0",
     "pretty-ms": "^8.0.0"
   }

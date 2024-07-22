@@ -2,10 +2,8 @@
   This setup is inspiried from https://github.com/RobinMalfait/advent-of-code
  */
 
-import fs from 'fs';
-import path from 'path';
-import { config } from 'dotenv';
-config();
+import fs from 'node:fs';
+import path from 'node:path';
 
 const day = (process.argv[2] ?? new Date().getDate().toString()).padStart(
   2,
@@ -111,9 +109,10 @@ const replacements = {
   'typescript/index.ts': values,
   'rust/src/main.rs': values,
   'rust/Cargo.toml': values,
-  'rust/Cargo.lock': values,
+  // 'rust/Cargo.lock': values,
   'go/main.go': values,
   'go/go.mod': values,
+  'java/Main.java': values,
 };
 
 for (const file in replacements) {
