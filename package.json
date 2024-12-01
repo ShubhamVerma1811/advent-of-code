@@ -10,7 +10,8 @@
   "type": "module",
   "scripts": {
     "format": "prettier -w . --ignore-unknown --log-level error",
-    "gen": "node --env-file .env ./generate.js"
+    "gen": "node --env-file .env ./generate.js",
+    "clean": "rm -rf ./src/*"
   },
   "devDependencies": {
     "@biomejs/biome": "1.4.1",
