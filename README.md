@@ -1,22 +1,39 @@
-My Advent of Code solutions so far.
+# Advent of Code Solutions
 
-This repo is inspired from Robin's repo.
+This repository contains my solutions for Advent of Code challenges. It's inspired by Robin's repository.
 
-Usage
+## Usage
 
-Run the `pnpm gen` (or yarn or npm or whatever) command to generate a new file for today's challenge.
+### Generate a new file for today's challenge:
 
-Or specific day and year:
+```bash
+pnpm gen
+```
+
+### Generate a file for a specific day and year:
 
 ```bash
 pnpm gen 1 2022
 ```
 
-If you are forking/cloning this repo, I suggest to use the `pnpm clean` command to remove my submissions from the `src` folder and then run the `pnpm gen` command.
+### Clean the repository:
 
-Note: To get the inputs in the data folder, you'll need to provide your session cookie in the `.env` file.
+If you're forking or cloning this repo, it's recommended to remove existing submissions:
+
+```bash
+pnpm clean
+```
+
+Then generate new files as needed.
+
+## Input Data
+
+To fetch input data, you need to provide your session cookie in the `.env` file.
 
 ## Templates
 
-The templates are in the `templates` folder. You can find the templates for the different days in the `templates` folder.
-You can create/delete the templates you want to use.
+Templates for different days are located in the `templates` folder. You can customize these by creating, modifying, or deleting templates as needed.
+
+## Note
+
+This README and the project structure are designed to make it easy to manage and organize your Advent of Code solutions. Feel free to modify the structure to suit your preferences.
