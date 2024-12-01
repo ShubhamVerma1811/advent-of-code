@@ -13,10 +13,6 @@ func main() {
 		panic(err)
 	}
 
-	if err != nil {
-		panic(err)
-	}
-
 	// Part 1
 	{
 		start := time.Now()
