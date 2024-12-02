@@ -23,6 +23,10 @@ function destDay(...paths) {
   return destYear(`day-${day}`, ...paths);
 }
 
+function destData(...paths) {
+  return path.resolve(process.cwd(), 'data', ...paths);
+}
+
 function template(...paths) {
   return path.resolve(process.cwd(), 'templates', ...paths);
 }
@@ -81,6 +85,19 @@ if (!fs.existsSync(destYear('package.json'))) {
   }
 }
 
+async function fetchInput({ year, day }) {
+  const response = await fetch(
+    `https://adventofcode.com/${year}/day/${Number(day)}/input`,
+    {
+      headers: {
+        cookie: process.env.AOC_COOKIE,
+      },
+    }
+  );
+  const contents = await response.text();
+  return contents;
+}
+
 async function fetchAndWriteInput({ year, day }) {
   const response = await fetch(
     `https://adventofcode.com/${year}/day/${Number(day)}/input`,
@@ -127,4 +144,7 @@ for (const file in replacements) {
   await fs.promises.writeFile(destDay(file), contents, 'utf8');
 }
 
-fetchAndWriteInput({ year, day });
+await fs.promises.writeFile(
+  destData(`${year}-${day}.txt`),
+  await fetchInput({ year, day })
+);

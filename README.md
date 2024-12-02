@@ -1,39 +1,43 @@
-# Advent of Code Solutions
+## My AOC Stats
 
-This repository contains my solutions for Advent of Code challenges. It's inspired by Robin's repository.
+Total stars: **21**
 
-## Usage
+|    Day     | [2015][link-2015] | [2016][link-2016] | [2017][link-2017] | [2018][link-2018] | [2019][link-2019] | [2020][link-2020] | [2021][link-2021] | [2022][link-2022] | [2023][link-2023] | [2024][link-2024] |
+| :--------: | :---------------- | :---------------- | :---------------- | :---------------- | :---------------- | :---------------- | :---------------- | :---------------- | :---------------- | :---------------- |
+|   **1**    | ⭐⭐              |                   |                   |                   |                   |                   |                   |                   | ⭐⭐              | ⭐⭐              |
+|   **2**    | ⭐⭐              |                   |                   |                   |                   |                   |                   |                   | ⭐⭐              | ⭐                |
+|   **3**    |                   |                   |                   |                   |                   |                   |                   |                   | ⭐⭐              |                   |
+|   **4**    | ⭐⭐              |                   |                   |                   |                   |                   |                   |                   | ⭐⭐              |                   |
+|   **5**    |                   |                   |                   |                   |                   |                   |                   |                   | ⭐                |                   |
+|   **6**    |                   |                   |                   |                   |                   |                   |                   |                   | ⭐⭐              |                   |
+|   **7**    |                   |                   |                   |                   |                   |                   |                   |                   |                   |                   |
+|   **8**    |                   |                   |                   |                   |                   |                   |                   |                   | ⭐                |                   |
+|   **9**    |                   |                   |                   |                   |                   |                   |                   |                   |                   |                   |
+|   **10**   |                   |                   |                   |                   |                   |                   |                   |                   |                   |                   |
+|   **11**   |                   |                   |                   |                   |                   |                   |                   |                   |                   |                   |
+|   **12**   |                   |                   |                   |                   |                   |                   |                   |                   |                   |                   |
+|   **13**   |                   |                   |                   |                   |                   |                   |                   |                   |                   |                   |
+|   **14**   |                   |                   |                   |                   |                   |                   |                   |                   |                   |                   |
+|   **15**   |                   |                   |                   |                   |                   |                   |                   |                   |                   |                   |
+|   **16**   |                   |                   |                   |                   |                   |                   |                   |                   |                   |                   |
+|   **17**   |                   |                   |                   |                   |                   |                   |                   |                   |                   |                   |
+|   **18**   |                   |                   |                   |                   |                   |                   |                   |                   |                   |                   |
+|   **19**   |                   |                   |                   |                   |                   |                   |                   |                   |                   |                   |
+|   **20**   |                   |                   |                   |                   |                   |                   |                   |                   |                   |                   |
+|   **21**   |                   |                   |                   |                   |                   |                   |                   |                   |                   |                   |
+|   **22**   |                   |                   |                   |                   |                   |                   |                   |                   |                   |                   |
+|   **23**   |                   |                   |                   |                   |                   |                   |                   |                   |                   |                   |
+|   **24**   |                   |                   |                   |                   |                   |                   |                   |                   |                   |                   |
+|   **25**   |                   |                   |                   |                   |                   |                   |                   |                   |                   |                   |
+| **Total:** | 6                 | 0                 | 0                 | 0                 | 0                 | 0                 | 0                 | 0                 | 12                | 3                 |
 
-### Generate a new file for today's challenge:
-
-```bash
-pnpm gen
-```
-
-### Generate a file for a specific day and year:
-
-```bash
-pnpm gen 1 2022
-```
-
-### Clean the repository:
-
-If you're forking or cloning this repo, it's recommended to remove existing submissions:
-
-```bash
-pnpm clean
-```
-
-Then generate new files as needed.
-
-## Input Data
-
-To fetch input data, you need to provide your session cookie in the `.env` file.
-
-## Templates
-
-Templates for different days are located in the `templates` folder. You can customize these by creating, modifying, or deleting templates as needed.
-
-## Note
-
-This README and the project structure are designed to make it easy to manage and organize your Advent of Code solutions. Feel free to modify the structure to suit your preferences.
+[link-2015]: https://github.com/ShubhamVerma1811/advent-of-code/tree/main/src/2015
+[link-2016]: https://github.com/ShubhamVerma1811/advent-of-code/tree/main/src/2016
+[link-2017]: https://github.com/ShubhamVerma1811/advent-of-code/tree/main/src/2017
+[link-2018]: https://github.com/ShubhamVerma1811/advent-of-code/tree/main/src/2018
+[link-2019]: https://github.com/ShubhamVerma1811/advent-of-code/tree/main/src/2019
+[link-2020]: https://github.com/ShubhamVerma1811/advent-of-code/tree/main/src/2020
+[link-2021]: https://github.com/ShubhamVerma1811/advent-of-code/tree/main/src/2021
+[link-2022]: https://github.com/ShubhamVerma1811/advent-of-code/tree/main/src/2022
+[link-2023]: https://github.com/ShubhamVerma1811/advent-of-code/tree/main/src/2023
+[link-2024]: https://github.com/ShubhamVerma1811/advent-of-code/tree/main/src/2024

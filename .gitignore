@@ -371,3 +371,7 @@ rust-project.json
 # .pnp.*
 
 # End of https://www.toptal.com/developers/gitignore/api/node,rust,rust-analyzer,go,yarn
+
+# data inputs
+
+data
