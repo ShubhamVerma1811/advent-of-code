@@ -11,7 +11,7 @@ async function main() {
   {
     console.time('Part 1')
     const result = part1(data)
-    console.log('Result:', result)
+    console.info('Result:', result)
     console.timeEnd('Part 1')
   }
 
@@ -19,7 +19,7 @@ async function main() {
   {
     console.time('Part 2')
     const result = part2(data)
-    console.log('Result:', result)
+    console.info('Result:', result)
     console.timeEnd('Part 2')
   }
 }
