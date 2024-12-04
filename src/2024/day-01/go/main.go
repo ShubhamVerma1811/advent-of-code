@@ -51,8 +51,8 @@ func part1(data []byte) interface{} {
 		right = append(right, r)
 	}
 
-	sort.Ints(sort.IntSlice(left))
-	sort.Ints(sort.IntSlice(right))
+	sort.Ints((left))
+	sort.Ints((right))
 
 	for k := range left {
 		distance += int(math.Abs(float64(left[k] - right[k])))
