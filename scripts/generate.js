@@ -98,6 +98,10 @@ async function fetchInput({ year, day }) {
   return contents;
 }
 
+async function ensureDataDirectory() {
+  await fs.promises.mkdir(data(), { recursive: true });
+}
+
 async function fetchAndWriteInput({ year, day }) {
   const response = await fetch(
     `https://adventofcode.com/${year}/day/${Number(day)}/input`,
@@ -107,8 +111,15 @@ async function fetchAndWriteInput({ year, day }) {
       },
     },
   );
-  const contents = await response.text();
 
+  if (!response.ok) {
+    throw new Error(
+      `Failed to fetch input: ${response.status} ${response.statusText}`,
+    );
+  }
+
+  const contents = await response.text();
+  await ensureDataDirectory();
   await fs.promises.writeFile(data(`${year}-${day}.txt`), contents, "utf8");
 }
 

@@ -9,9 +9,11 @@
   "license": "MIT",
   "type": "module",
   "scripts": {
+    "setup": "node scripts/setup.js",
     "format": "prettier -wu .",
-    "gen": "node --env-file .env ./generate.js",
-    "clean": "rm -rf ./src/*"
+    "gen": "node --env-file .env ./scripts/generate.js",
+    "clean": "rm -rf ./src/* data/*",
+    "update-stats": "node --env-file .env ./scripts/update-readme.js"
   },
   "devDependencies": {
     "@biomejs/biome": "1.4.1",

@@ -2,33 +2,76 @@
 
 ## Setup Instructions
 
-1. **Clean existing code**
+1. **Install dependencies**
 
    ```bash
-   yarn clean
+   pnpm install
    ```
 
 2. **Setup environment variables**
-
+   - First, copy the sample environment file:
+     ```bash
+     cp .env.sample .env
+     ```
    - Log in to [Advent of Code](https://adventofcode.com)
    - Open browser developer tools (F12) → Network tab
    - Refresh the page
    - Find any request to adventofcode.com and copy the `session` cookie
-   - Create a `.env` file in the project root with:
+   - Edit the `.env` file and update it with your session cookie:
      ```
-     AOC_SESSION=your_session_cookie_here
+     AOC_COOKIE=your_session_cookie_here
      ```
 
-3. **Install dependencies**
+## Usage
+
+1. **Generate a new day's solution**
 
    ```bash
-   yarn install
+   pnpm gen [day] [year]
+   # Example: pnpm gen 1 2023
+   # If no arguments are provided, it will use today's date
    ```
 
-4. **Start working on a puzzle**
+   This will:
+
+   - Create a new directory under `src/<year>/day-<day>`
+   - Generate template files for TypeScript, Go, and test files
+   - Download the input file to `data/<year>-<day>.txt`
+
+## Adding Support for More Languages
+
+You can add support for additional programming languages by following these steps:
+
+1. Create a new directory under `templates/day/` for your language (e.g., `python/`)
+2. Add your template files in that directory
+3. Update `scripts/generate.js` to include your language in the `replacements` object:
+   ```javascript
+   const replacements = {
+     // ... existing entries
+     "your-language/your-template-file": values,
+   };
+   ```
+4. The script will automatically replace any `{{DAY}}` and `{{YEAR}}` placeholders in your template files
+5. Make sure to update the `copy` function if your language requires any special file handling
+
+For example, to add Python support:
+
+1. Create `templates/day/python/solution.py` with your Python template
+2. Add the following to the replacements object in `generate.js`:
+
+   ```javascript
+   'python/solution.py': values,
+   ```
+
+3. **Format your code**
+
    ```bash
-   yarn start <year> <day>
-   # Example: yarn start 2023 1
+   pnpm format
+   ```
+
+4. **Clean up** (if needed)
+   ```bash
+   pnpm clean  # Removes everything in the src directory
    ```
 
 ## My AOC Stats
