@@ -9,7 +9,7 @@
   "license": "MIT",
   "type": "module",
   "scripts": {
-    "format": "prettier -w . --ignore-unknown --log-level error",
+    "format": "prettier -wu .",
     "gen": "node --env-file .env ./generate.js",
     "clean": "rm -rf ./src/*"
   },

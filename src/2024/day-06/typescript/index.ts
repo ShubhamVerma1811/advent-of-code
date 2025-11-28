@@ -26,97 +26,254 @@ async function main() {
 
 main();
 
+class Position {
+  public colIdx: number;
+  public rowIdx: number;
+  public direction: 'up' | 'down' | 'left' | 'right';
+  public seen: Set<string>;
+
+  constructor(
+    colIdx: number,
+    rowIdx: number,
+    direction: 'up' | 'down' | 'left' | 'right'
+  ) {
+    this.colIdx = colIdx;
+    this.rowIdx = rowIdx;
+    this.direction = direction;
+    this.seen = new Set();
+  }
+
+  getUp() {
+    return { rowIdx: this.rowIdx - 1, colIdx: this.colIdx };
+  }
+
+  getRight() {
+    return { rowIdx: this.rowIdx, colIdx: this.colIdx + 1 };
+  }
+
+  getDown() {
+    return { rowIdx: this.rowIdx + 1, colIdx: this.colIdx };
+  }
+
+  getLeft() {
+    return { rowIdx: this.rowIdx, colIdx: this.colIdx - 1 };
+  }
+
+  moveUp() {
+    this.rowIdx -= 1;
+  }
+
+  moveRight() {
+    this.colIdx += 1;
+  }
+
+  moveDown() {
+    this.rowIdx += 1;
+  }
+
+  moveLeft() {
+    this.colIdx -= 1;
+  }
+}
+
 export function part1(data: string) {
   const lines = data.trim().split('\n');
   // @ts-ignore
-  let guardPos: {
-    x: number;
-    y: number;
-    direction: 'up' | 'down' | 'left' | 'right';
-  } = {};
-
+  let pos: Position = {};
   let sum = 0;
-  const seen = new Set();
 
   const grid = lines.map((line, rowIdx) => {
     return line.split('').map((col, colIdx) => {
       if (col === '^') {
-        guardPos = {
-          x: colIdx,
-          y: rowIdx,
-          direction: 'up',
-        };
+        pos = new Position(colIdx, rowIdx, 'up');
       }
       return col;
     });
   });
 
-  seen.add(`${guardPos.x}-${guardPos.y}`);
+  pos.seen.add(`${pos.colIdx}-${pos.rowIdx}`);
   sum += 1;
 
   while (true) {
     if (
-      guardPos.y < 0 ||
-      guardPos.y >= grid.length ||
-      guardPos.x < 0 ||
-      guardPos.x >= grid[0].length
+      pos.rowIdx < 0 ||
+      pos.rowIdx >= grid.length ||
+      pos.colIdx < 0 ||
+      pos.colIdx >= grid[0].length
     ) {
       break;
     }
 
-    switch (guardPos.direction) {
-      case 'up':
-        if (grid?.[guardPos.y - 1]?.[guardPos.x] !== '#') {
-          guardPos.y -= 1;
+    switch (pos.direction) {
+      case 'up': {
+        const nextPos = pos.getUp();
+        const isNextHash = grid?.[nextPos.rowIdx]?.[nextPos.colIdx] === '#';
 
-          if (!seen.has(`${guardPos.x}-${guardPos.y}`)) {
-            seen.add(`${guardPos.x}-${guardPos.y}`);
+        if (!isNextHash) {
+          pos.moveUp();
+
+          if (!pos.seen.has(`${pos.colIdx}-${pos.rowIdx}`)) {
+            pos.seen.add(`${pos.colIdx}-${pos.rowIdx}`);
             sum += 1;
           }
         } else {
-          guardPos.direction = 'right';
+          pos.direction = 'right';
         }
         break;
-      case 'right':
-        if (grid?.[guardPos.y]?.[guardPos.x + 1] !== '#') {
-          guardPos.x += 1;
+      }
+      case 'right': {
+        const nextPos = pos.getRight();
+        const isNextHash = grid?.[nextPos.rowIdx]?.[nextPos.colIdx] === '#';
+        if (!isNextHash) {
+          pos.moveRight();
 
-          if (!seen.has(`${guardPos.x}-${guardPos.y}`)) {
-            seen.add(`${guardPos.x}-${guardPos.y}`);
+          if (!pos.seen.has(`${pos.colIdx}-${pos.rowIdx}`)) {
+            pos.seen.add(`${pos.colIdx}-${pos.rowIdx}`);
             sum += 1;
           }
         } else {
-          guardPos.direction = 'down';
+          pos.direction = 'down';
         }
         break;
-      case 'down':
-        if (grid?.[guardPos.y + 1]?.[guardPos.x] !== '#') {
-          guardPos.y += 1;
+      }
+      case 'down': {
+        const nextPos = pos.getDown();
+        const isNextHash = grid?.[nextPos.rowIdx]?.[nextPos.colIdx] === '#';
+        if (!isNextHash) {
+          pos.moveDown();
 
-          if (!seen.has(`${guardPos.x}-${guardPos.y}`)) {
-            seen.add(`${guardPos.x}-${guardPos.y}`);
+          if (!pos.seen.has(`${pos.colIdx}-${pos.rowIdx}`)) {
+            pos.seen.add(`${pos.colIdx}-${pos.rowIdx}`);
             sum += 1;
           }
         } else {
-          guardPos.direction = 'left';
+          pos.direction = 'left';
         }
         break;
-      case 'left':
-        if (grid?.[guardPos.y]?.[guardPos.x - 1] !== '#') {
-          guardPos.x -= 1;
+      }
+      case 'left': {
+        const nextPos = pos.getLeft();
+        const isNextHash = grid?.[nextPos.rowIdx]?.[nextPos.colIdx] === '#';
+        if (!isNextHash) {
+          pos.moveLeft();
 
-          if (!seen.has(`${guardPos.x}-${guardPos.y}`)) {
-            seen.add(`${guardPos.x}-${guardPos.y}`);
+          if (!pos.seen.has(`${pos.colIdx}-${pos.rowIdx}`)) {
+            pos.seen.add(`${pos.colIdx}-${pos.rowIdx}`);
             sum += 1;
           }
         } else {
-          guardPos.direction = 'up';
+          pos.direction = 'up';
         }
         break;
+      }
     }
   }
 
   return sum - 1;
 }
 
-export function part2(data: string) {}
+export function part2(data: string) {
+  const lines = data.trim().split('\n');
+  // @ts-ignore
+  let pos: Position = {};
+
+  let block = 0;
+  const placed = new Set();
+
+  const grid = lines.map((line, rowIdx) =>
+    line.split('').map((col, colIdx) => {
+      if (col === '^') {
+        pos = new Position(colIdx, rowIdx, 'up');
+      }
+      return col;
+    })
+  );
+
+  pos.seen.add(`${pos.rowIdx}-${pos.colIdx}`);
+
+  while (true) {
+    if (
+      pos.rowIdx < 0 ||
+      pos.rowIdx >= grid.length ||
+      pos.colIdx < 0 ||
+      pos.colIdx >= grid[0].length
+    ) {
+      break;
+    }
+
+    switch (pos.direction) {
+      case 'up': {
+        const nextPos = pos.getUp();
+        const nextPosInCaseOfBlock = pos.getRight();
+        const isNextHash = grid?.[nextPos.rowIdx]?.[nextPos.colIdx] === '#';
+
+        if (!placed.has(`${nextPos.rowIdx}-${nextPos.colIdx}`)) {
+          placed.add(`${nextPos.rowIdx}-${nextPos.colIdx}`);
+          block += 1;
+        }
+
+        if (isNextHash) {
+          pos.direction = 'right';
+        } else {
+          pos.moveUp();
+        }
+        break;
+      }
+      case 'right': {
+        const nextPos = pos.getRight();
+        const nextPosInCaseOfBlock = pos.getDown();
+        const isNextHash = grid?.[nextPos.rowIdx]?.[nextPos.colIdx] === '#';
+
+        if (!placed.has(`${nextPos.rowIdx}-${nextPos.colIdx}`)) {
+          placed.add(`${nextPos.rowIdx}-${nextPos.colIdx}`);
+          block += 1;
+        }
+
+        if (isNextHash) {
+          pos.direction = 'down';
+        } else {
+          pos.moveRight();
+        }
+        break;
+      }
+      case 'down': {
+        const nextPos = pos.getDown();
+        const nextPosInCaseOfBlock = pos.getLeft();
+        const isNextHash = grid?.[nextPos.rowIdx]?.[nextPos.colIdx] === '#';
+
+        if (!placed.has(`${nextPos.rowIdx}-${nextPos.colIdx}`)) {
+          placed.add(`${nextPos.rowIdx}-${nextPos.colIdx}`);
+          block += 1;
+        }
+
+        if (isNextHash) {
+          pos.direction = 'left';
+        } else {
+          pos.moveDown();
+        }
+        break;
+      }
+      case 'left': {
+        const nextPos = pos.getLeft();
+        const nextPosInCaseOfBlock = pos.getUp();
+        const isNextHash = grid?.[nextPos.rowIdx]?.[nextPos.colIdx] === '#';
+
+        if (!placed.has(`${nextPos.rowIdx}-${nextPos.colIdx}`)) {
+          placed.add(`${nextPos.rowIdx}-${nextPos.colIdx}`);
+          block += 1;
+        }
+
+        if (isNextHash) {
+          pos.direction = 'down';
+        } else {
+          pos.moveLeft();
+        }
+        break;
+      }
+    }
+  }
+
+  console.log(pos.seen);
+
+  return block;
+}

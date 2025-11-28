@@ -1,3 +1,36 @@
+# Advent of Code Solutions
+
+## Setup Instructions
+
+1. **Clean existing code**
+
+   ```bash
+   yarn clean
+   ```
+
+2. **Setup environment variables**
+
+   - Log in to [Advent of Code](https://adventofcode.com)
+   - Open browser developer tools (F12) → Network tab
+   - Refresh the page
+   - Find any request to adventofcode.com and copy the `session` cookie
+   - Create a `.env` file in the project root with:
+     ```
+     AOC_SESSION=your_session_cookie_here
+     ```
+
+3. **Install dependencies**
+
+   ```bash
+   yarn install
+   ```
+
+4. **Start working on a puzzle**
+   ```bash
+   yarn start <year> <day>
+   # Example: yarn start 2023 1
+   ```
+
 ## My AOC Stats
 
 Total stars: **29**
