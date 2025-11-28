@@ -36,9 +36,17 @@ async function setup() {
     }
 
     console.log("\n✨ Setup complete! Next steps:");
-    console.log("1. Update the AOC_COOKIE in .env file");
-    console.log("2. Run `pnpm gen` to start a new puzzle");
-    console.log("3. Run `pnpm format` to format your code");
+    console.log(
+      "1. Update the AOC_COOKIE in .env file with your session cookie",
+    );
+    console.log(
+      "2. Run `pnpm clean` to remove any existing solutions and input files",
+    );
+    console.log("3. Run `pnpm gen` to start a new puzzle");
+    console.log("4. Run `pnpm format` to format your code");
+    console.log(
+      "\nFor more detailed instructions, please refer to the README.md file.",
+    );
   } catch (error) {
     console.error("❌ Setup failed:", error.message);
     process.exit(1);

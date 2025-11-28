@@ -1,42 +1,73 @@
 # Advent of Code Solutions
 
-## Setup Instructions
+## 🚀 Quick Start
 
-1. **Install dependencies**
+1. **Clone the repository**
+
+   ```bash
+   git clone https://github.com/ShubhamVerma1811/advent-of-code.git
+   cd advent-of-code
+   ```
+
+2. **Run the setup script**
 
    ```bash
    pnpm install
-   ```
-
-2. **Setup environment variables**
-   - First, copy the sample environment file:
-     ```bash
-     cp .env.sample .env
-     ```
-   - Log in to [Advent of Code](https://adventofcode.com)
-   - Open browser developer tools (F12) → Network tab
-   - Refresh the page
-   - Find any request to adventofcode.com and copy the `session` cookie
-   - Edit the `.env` file and update it with your session cookie:
-     ```
-     AOC_COOKIE=your_session_cookie_here
-     ```
-
-## Usage
-
-1. **Generate a new day's solution**
-
-   ```bash
-   pnpm gen [day] [year]
-   # Example: pnpm gen 1 2023
-   # If no arguments are provided, it will use today's date
+   pnpm setup
    ```
 
    This will:
 
-   - Create a new directory under `src/<year>/day-<day>`
-   - Generate template files for TypeScript, Go, and test files
-   - Download the input file to `data/<year>-<day>.txt`
+   - Create necessary directories
+   - Set up a `.env` file with instructions
+   - Print next steps
+
+3. **Get your session cookie**
+   - Log in to [Advent of Code](https://adventofcode.com)
+   - Open browser developer tools (F12) → Network tab
+   - Refresh the page
+   - Find any request to adventofcode.com and copy the `session` cookie
+   - Paste it in the `.env` file:
+     ```
+     AOC_COOKIE=your_session_cookie_here
+     ```
+
+## 🛠 Usage
+
+### Starting a New Puzzle
+
+```bash
+# Clean any existing solutions (optional)
+pnpm clean
+
+# Generate files for today's puzzle
+pnpm gen
+
+# Or specify day and year
+pnpm gen <day> <year>
+# Example: pnpm gen 1 2023
+```
+
+This will:
+
+- Create a new directory at `src/<year>/day-<day>`
+- Generate template files for TypeScript and Go
+- Create test files with sample input
+- Download your puzzle input to `data/<year>-<day>.txt`
+
+### Formatting Your Code
+
+```bash
+pnpm format
+```
+
+### Updating Stats
+
+To update your AoC stats in the README:
+
+```bash
+pnpm update-stats
+```
 
 ## Adding Support for More Languages
 
